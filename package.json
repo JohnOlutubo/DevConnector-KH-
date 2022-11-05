@@ -1,0 +1,24 @@
+{
+  "name": "htmljsdemo",
+  "version": "1.0.0",
+  "description": "\"this is a js based project for learning how to deal with export and default\"",
+  "main": "main.js",
+  "scripts": {
+    "start": "node htmlJSDemo/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnOlutubo/DevConnector-KH-.git"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "John",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/JohnOlutubo/DevConnector-KH-/issues"
+  },
+  "homepage": "https://github.com/JohnOlutubo/DevConnector-KH-#readme"
+}
