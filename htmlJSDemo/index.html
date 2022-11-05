@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JS Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script type="module">
+        // import * as mod from "./module1.js";
+        import {num, hello} from "./module1.js"; // you can erase this line if you wanna use the comment above
+        import {hello3} from "./module2.js";
+        // for default no need of {} and you can use any name
+        // if we have only export then use {} ===> can hold a function / value
+
+        // in case of default we can use any name while import it.
+
+        // mod : hello function and num variable
+        // mod.num 
+        // mod.hello()
+        
+        console.log("value is " + /* mod. */num) // you must include the commented if you want to use line 10
+        /* mod. */hello("John") // you must include the commented if you want to use line 10
+        hello3("hello")
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
