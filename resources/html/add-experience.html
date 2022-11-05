@@ -1,60 +1,121 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/styles.css">
-    <title>Welcome To DevConnector</title>
-</head>
-<body>
-    <nav>
-        <a class="btn" href="index.html">DevConnectors</a>
-      <a class="btn" href="profiles.html">Developers</a>
-      <a class="btn" href="signup.html">Signup</a>
-      <a class="btn" href="signin.html">SignIn </a>
-      <a class="btn" href="posts.html">Posts </a>
-    </nav>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
 
-    <section>
-        <h1>Add An Experience</h1>
-        <p>Add any developer/programming positions you have had in the past</p>
-        <small>* = required field</small>
-        <form>
-            <div>
-                <input 
-                    type="text" 
-                    name="Job" 
-                    value="" 
-                    placeholder="* Job Title" 
-                    required
-                />
-            </div>
-            <div>
-                <input type="text" placeholder="* Company" name="company" value="" required/>
-            </div>
-            <div>
-                <input type="text" placeholder="Location" name="location" />
-            </div>
-            <div>
-                From Date
-                <input type="date" name="from date" value="" />
-            <div>
-                <input type="checkbox" name="current Job"> 
-                Current Job
-            </div>
-            </div>
-            <div>
-                To date
-                <input type="date" name="to date" value=""/>
-            </div>
-            <div>
-                <textarea name="" cols="30" rows="5" placeholder="Job description"></textarea>
-            </div>
-            <div>
-                <input type="submit"/>
-                <button>Go Back</button>
-            </div>
-        </form>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Welcome To The Developer Connector</title>
+  </head>
+  <body>
+    <nav class="navbar bg-dark">
+      <h1>
+        <a href="index.html"><i class="fas fa-code"></i> DevConnector</a>
+      </h1>
+      <ul>
+        <li><a href="profiles.html">Developers</a></li>
+        <li><a href="posts.html">Posts</a></li>
+        <li>
+          |
+          <a href="dashboard.html" title="Dashboard"
+            ><i class="fas fa-user"></i>
+            <span class="hide-sm">Dashboard</span></a
+          >
+        </li>
+        <li>
+          <a href="login.html" title="Logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="hide-sm">Logout</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+    <section class="container">
+      <h1 class="large text-primary">Add An Experience</h1>
+      <p class="lead">
+        Add any developer/programming positions that you had in the past
+      </p>
+      <small>*= required field</small>
+      <form class="form">
+        <div class="form-group">
+          <input
+            type="text"
+            name="jobtitle"
+            id="jobtitle"
+            placeholder="* Job Title"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            name="company"
+            id="company"
+            placeholder="* Company"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            name="location"
+            id="location"
+            placeholder=" Location"
+          />
+        </div>
+        <div>
+          <label for="fromdate">From Date</label>
+        </div>
+        <div class="form-group">
+          <input
+            type="date"
+            name="fromdate"
+            id="fromdate"
+            placeholder="mm/dd/yyyy"
+          />
+        </div>
+        `
+        <div class="form-group">
+          <input
+            type="checkbox"
+            id="currentjob"
+            name="currentjob"
+            value="Current Job"
+          />
+          <span>Current Job</span>
+        </div>
+        <div>
+          <label for="todate">To Date</label>
+        </div>
+        <div class="form-group">
+          <input
+            type="date"
+            name="todate"
+            id="todate"
+            placeholder="mm/dd/yyyy"
+          />
+        </div>
+        <div class="form-group">
+          <textarea
+            name="text"
+            cols="30"
+            rows="5"
+            placeholder="Job Description"
+          ></textarea>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary" />
+        <a href="dashboard.html">Go Back</a>
+      </form>
     </section>
-    <footer>copyright &copy; 2022 KnowledgeHut.com</footer>
-</body>
+    <footer>copyright &copy; 2022 KnowlegHut.com</footer>
+  </body>
 </html>
