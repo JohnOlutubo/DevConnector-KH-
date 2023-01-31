@@ -77,7 +77,7 @@ router.post(
 // @access   Public
 router.get("/", async (req, res) => {
   try {
-    const profiles = await Profile.find().populate("user", ["name", "avatar"]);
+    const profiles = await profile.find().populate("user", ["name", "avatar"]);
     res.json(profiles);
   } catch (err) {
     console.error(err.message);
@@ -117,8 +117,8 @@ router.delete("/", auth, async (req, res) => {
     // Remove profile
     // Remove user
     await Promise.all([
-      Post.deleteMany({ user: req.user.id }),
-      Profile.findOneAndRemove({ user: req.user.id }),
+  //  Post.deleteMany({ user: req.user.id }),
+      profile.findOneAndRemove({ user: req.user.id }),
       users.findOneAndRemove({ _id: req.user.id }),
     ]);
 
