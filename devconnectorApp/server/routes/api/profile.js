@@ -12,7 +12,7 @@ const router = express.Router();
 
 // @route : POST /api/profile
 // @Desc : create or update the profile
-// @access : private(needs token)/// validatin of token
+// @access : private(needs token)/// validation of token
 router.post(
   "",
   auth,
@@ -180,5 +180,64 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
     return res.status(500).json({ msg: 'Server error' });
   }
 });
+
+
+
+// @route    PUT api/profile/education
+// @desc     Add profile education
+// @access   Private
+router.put(
+  "/education",
+  auth,
+  check("school", "school is required").notEmpty(),
+  check("degree", "degree is required").notEmpty(),
+  check("fieldofstudy", "fieldOfStudy is required").notEmpty(),
+  check("from", "From date is required and needs to be from the past")
+    .notEmpty()
+    .custom((value, { req }) => (req.body.to ? value < req.body.to : true)),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      const profileObj = await profile.findOne({ user: req.user.id });
+
+      profileObj.education.unshift(req.body);
+
+      await profileObj.save();
+
+      res.json(profileObj);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Server Error");
+    }
+  }
+);
+
+// @route    DELETE api/profile/education/:edu_id
+// @desc     Delete education from profile
+// @access   Private
+
+router.delete('/education/:edu_id', auth, async (req, res) => {
+  try {
+    const foundProfile = await profile.findOne({ user: req.user.id });
+
+    foundProfile.education = foundProfile.education.filter(
+      (edu) => edu._id.toString() !== req.params.edu_id
+    );
+
+    await foundProfile.save();
+    return res.status(200).json(foundProfile);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ msg: 'Server error' });
+  }
+});
+
+
+
+
 
 module.exports = router;
